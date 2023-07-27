@@ -1,17 +1,21 @@
 package com.rkuryshev.messenger.Models;
 
 import com.rkuryshev.messenger.DTO.MessageDTO;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Setter
 @Getter
+@Entity
+@NoArgsConstructor
+@EqualsAndHashCode
 public class Message {
 
+    @Id
     @NonNull
     private UUID id;
     @NonNull

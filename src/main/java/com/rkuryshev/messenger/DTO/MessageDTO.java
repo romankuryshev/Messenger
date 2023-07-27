@@ -1,6 +1,5 @@
 package com.rkuryshev.messenger.DTO;
 
-import com.rkuryshev.messenger.Models.Message;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
