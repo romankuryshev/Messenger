@@ -1,7 +1,6 @@
-package com.rkuryshev.messenger.DTO;
+package com.rkuryshev.messenger.dto;
 
-import com.rkuryshev.messenger.Models.Message;
-import com.rkuryshev.messenger.Models.User;
+import com.rkuryshev.messenger.entity.Message;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;

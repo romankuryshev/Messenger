@@ -1,7 +1,7 @@
-package com.rkuryshev.messenger.Controllers;
+package com.rkuryshev.messenger.controller;
 
-import com.rkuryshev.messenger.DTO.ChatDTO;
-import com.rkuryshev.messenger.Services.ChatService;
+import com.rkuryshev.messenger.dto.ChatDTO;
+import com.rkuryshev.messenger.service.ChatService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,6 +1,6 @@
-package com.rkuryshev.messenger.Models;
+package com.rkuryshev.messenger.entity;
 
-import com.rkuryshev.messenger.DTO.UserDTO;
+import com.rkuryshev.messenger.dto.UserDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;

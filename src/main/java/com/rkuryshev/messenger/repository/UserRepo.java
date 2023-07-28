@@ -1,6 +1,6 @@
-package com.rkuryshev.messenger.Repositorys;
+package com.rkuryshev.messenger.repository;
 
-import com.rkuryshev.messenger.Models.User;
+import com.rkuryshev.messenger.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

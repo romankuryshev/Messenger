@@ -1,10 +1,9 @@
-package com.rkuryshev.messenger.Services;
+package com.rkuryshev.messenger.service;
 
-import com.rkuryshev.messenger.DTO.ChatDTO;
-import com.rkuryshev.messenger.Models.Chat;
-import com.rkuryshev.messenger.Repositorys.ChatRepo;
+import com.rkuryshev.messenger.dto.ChatDTO;
+import com.rkuryshev.messenger.entity.Chat;
+import com.rkuryshev.messenger.repository.ChatRepo;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

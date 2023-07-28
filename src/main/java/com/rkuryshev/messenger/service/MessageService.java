@@ -1,4 +1,4 @@
-package com.rkuryshev.messenger.Services;
+package com.rkuryshev.messenger.service;
 
 import org.springframework.stereotype.Service;
 

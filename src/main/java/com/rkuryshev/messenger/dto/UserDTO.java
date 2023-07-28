@@ -1,4 +1,4 @@
-package com.rkuryshev.messenger.DTO;
+package com.rkuryshev.messenger.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
