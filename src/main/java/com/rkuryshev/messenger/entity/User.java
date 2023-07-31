@@ -1,20 +1,16 @@
 package com.rkuryshev.messenger.entity;
 
 import com.rkuryshev.messenger.dto.UserDTO;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
 @Table(name = "user_table")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class User {
 
@@ -23,18 +19,22 @@ public class User {
     private UUID uuid;
 
     @NonNull
-    private String name;
+    private String username;
 
     @NonNull
     private String password;
 
-    public User(String name, String password) {
+    @NonNull
+    @ManyToMany
+    private Set<Role> roleSet;
+
+    public User(String username, String password) {
         this.uuid = UUID.randomUUID();
-        this.name = name;
+        this.username = username;
         this.password = password;
     }
 
     public UserDTO createDTO() {
-        return new UserDTO(name);
+        return new UserDTO(username);
     }
 }

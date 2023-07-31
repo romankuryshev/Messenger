@@ -1,9 +1,10 @@
 package com.rkuryshev.messenger.repository;
 
-import com.rkuryshev.messenger.entity.User;
+import com.rkuryshev.messenger.entity.Chat;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface UserRepo extends JpaRepository<User, UUID> {
+public interface ChatRepository extends JpaRepository<Chat, UUID> {
+
 }

@@ -1,0 +1,18 @@
+
+server:
+  port: 8081
+
+jwt:
+  secret: dlsjnfldjsnfdusnlasjnd123hbh3b2jh
+#  secret: 54497fabdc224a81d3bfe6c522b141ff8969730ea18f398efbc36f3b7b348dbb
+  lifetime: 30m
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Messenger
+    username: postgres
+    password: 1653
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update

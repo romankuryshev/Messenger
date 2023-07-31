@@ -2,7 +2,7 @@ package com.rkuryshev.messenger.service;
 
 import com.rkuryshev.messenger.dto.ChatDTO;
 import com.rkuryshev.messenger.entity.Chat;
-import com.rkuryshev.messenger.repository.ChatRepo;
+import com.rkuryshev.messenger.repository.ChatRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +12,14 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class ChatService {
-    private final ChatRepo chatRepo;
+    private final ChatRepository chatRepository;
 
     public List<Chat> getAllChats() {
-        return chatRepo.findAll();
+        return chatRepository.findAll();
     }
 
     public List<ChatDTO> getAllChatDTOs() {
-        List<Chat> chats = chatRepo.findAll();
+        List<Chat> chats = chatRepository.findAll();
         List<ChatDTO> chatDTOs = new ArrayList<>();
 
         for(Chat c : chats) {
@@ -30,7 +30,7 @@ public class ChatService {
     }
 
     public void addChat(Chat chat) {
-        chatRepo.save(chat);
+        chatRepository.save(chat);
     }
 
 }
