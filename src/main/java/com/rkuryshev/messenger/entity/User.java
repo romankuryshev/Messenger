@@ -4,7 +4,6 @@ import com.rkuryshev.messenger.dto.UserDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -16,6 +15,7 @@ public class User {
 
     @NonNull
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
 
     @NonNull
@@ -29,7 +29,6 @@ public class User {
     private Set<Role> roleSet;
 
     public User(String username, String password) {
-        this.uuid = UUID.randomUUID();
         this.username = username;
         this.password = password;
     }

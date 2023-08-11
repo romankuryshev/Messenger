@@ -2,6 +2,8 @@ package com.rkuryshev.messenger.entity;
 
 import com.rkuryshev.messenger.dto.MessageDTO;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
@@ -16,6 +18,7 @@ public class Message {
 
     @Id
     @NonNull
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @NonNull
     private String text;
@@ -23,7 +26,6 @@ public class Message {
     private LocalDateTime dateTime;
 
     private Message(String text) {
-        id = UUID.randomUUID();
         this.text = text;
         this.dateTime = LocalDateTime.now();
     }

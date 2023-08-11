@@ -1,10 +1,7 @@
 package com.rkuryshev.messenger.entity;
 
 import com.rkuryshev.messenger.dto.ChatDTO;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -18,6 +15,7 @@ public class Chat {
 
     @Id
     @NonNull
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
 
     @OneToMany
@@ -33,7 +31,6 @@ public class Chat {
     private User contactUser;
 
     public Chat(@NonNull User ownerUser, @NonNull User contactUser) {
-        this.uuid = UUID.randomUUID();
         this.ownerUser = ownerUser;
         this.contactUser = contactUser;
     }
