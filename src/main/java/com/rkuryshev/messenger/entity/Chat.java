@@ -36,6 +36,6 @@ public class Chat {
     }
 
     public ChatDTO createDTO() {
-        return new ChatDTO(messages, ownerUser.createDTO(), contactUser.createDTO());
+        return new ChatDTO(uuid ,messages, ownerUser.createDTO(), contactUser.createDTO());
     }
 }

@@ -8,7 +8,6 @@ import com.rkuryshev.messenger.service.ChatService;
 import com.rkuryshev.messenger.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,20 +36,15 @@ public class ChatController {
     }
 
     @PostMapping("/createChat")
-    public ResponseEntity<?> createNewChat(@RequestBody NewChatRequest newChatRequest) {
-        try {
-            return ResponseEntity.ok(chatService.createChat(newChatRequest));
-        } catch (ChatCreationException e) {
-            return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
-        }
-
+    public ChatDTO createNewChat(@RequestBody NewChatRequest newChatRequest) throws ChatCreationException {
+        return chatService.createChat(newChatRequest);
     }
     @GetMapping("/secured")
     public String getSecured() {
         return "secured";
     }
 
-    @GetMapping(value = "/public", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/public")
     public String getPublic() {
         return "public";
     }

@@ -1,13 +1,10 @@
 package com.rkuryshev.messenger.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 public class UserDTO {
-
-    private String name;
+    @NonNull
+    private String username;
 }
