@@ -7,7 +7,6 @@ import com.rkuryshev.messenger.entity.User;
 import com.rkuryshev.messenger.exeption.ChatCreationException;
 import com.rkuryshev.messenger.repository.ChatRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -41,9 +40,13 @@ public class ChatService {
         return createChatDTOsFromEntity(chatRepository.findChatsByOwnerUser(user));
     }
 
-    public ChatDTO getChatDto(UUID chatUUID) {
-        return chatRepository.findChatByUuid(chatUUID).createDTO();
+    public Chat getChat(UUID chatUUID) {
+        return chatRepository.findChatByUuid(chatUUID);
     }
+    public ChatDTO getChatDto(UUID chatUUID) {
+        return getChat(chatUUID).createDTO();
+    }
+
     public ChatDTO createChat(NewChatRequest newChatRequest) throws ChatCreationException {
         User owner = null;
         User contact = null;
@@ -57,6 +60,10 @@ public class ChatService {
         chatRepository.save(currentChat);
         chatRepository.save(new Chat(contact, owner));
         return currentChat.createDTO();
+    }
+
+    public void updateChat(Chat chat) {
+        chatRepository.save(chat);
     }
 
 }

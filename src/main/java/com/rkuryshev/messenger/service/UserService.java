@@ -30,8 +30,11 @@ public class UserService implements UserDetailsService {
     public Optional<User> findByUsername(String username){
         return userRepository.findByUsername(username);
     }
-    public Optional<User> findByUUID(UUID uuid){
-        return userRepository.findByUuid(uuid);
+
+    public User findByUUID(UUID uuid){
+        return userRepository.findByUuid(uuid).orElseThrow(() -> new UsernameNotFoundException(
+                String.format("User '%s' not found", uuid)
+        ));
     }
 
     @Transactional
