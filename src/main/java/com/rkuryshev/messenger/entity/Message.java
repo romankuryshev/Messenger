@@ -1,10 +1,8 @@
 package com.rkuryshev.messenger.entity;
 
 import com.rkuryshev.messenger.dto.MessageDTO;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.rkuryshev.messenger.dto.NewMessageRequest;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -24,18 +22,22 @@ public class Message {
     private String text;
     @NonNull
     private LocalDateTime dateTime;
+    @NonNull
+    @ManyToOne
+    @JoinColumn(name = "user_uuid")
+    private User user;
 
-    private Message(String text) {
+    public Message(String text, User user) {
         this.text = text;
         this.dateTime = LocalDateTime.now();
+        this.user = user;
     }
 
-    public static Message createMessage(String text) {
-        return new Message(text);
+    public Message(NewMessageRequest newMessageRequest) {
+        this.text = newMessageRequest.getText();
     }
-
     public MessageDTO createDTO() {
-        return new MessageDTO(text, dateTime);
+        return new MessageDTO( dateTime, text, user.getUuid());
     }
 
 }

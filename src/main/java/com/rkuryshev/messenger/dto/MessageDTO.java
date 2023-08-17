@@ -1,22 +1,17 @@
 package com.rkuryshev.messenger.dto;
 
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
-@Setter
-@Getter
+@Data
+@AllArgsConstructor
 public class MessageDTO {
+    @NonNull
+    private LocalDateTime dateTime;
     @NonNull
     private String text;
     @NonNull
-    private LocalDateTime dateTime;
-
-    public MessageDTO(@NonNull String text, @NonNull LocalDateTime dateTime) {
-        this.text = text;
-        this.dateTime = dateTime;
-    }
-
+    private UUID userId;
 }
