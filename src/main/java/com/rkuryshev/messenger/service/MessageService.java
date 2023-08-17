@@ -6,7 +6,6 @@ import com.rkuryshev.messenger.entity.Message;
 import com.rkuryshev.messenger.entity.User;
 import com.rkuryshev.messenger.repository.MessagesRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
