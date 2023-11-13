@@ -8,10 +8,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 public class MessageDTO {
-    @NonNull
     private LocalDateTime dateTime;
-    @NonNull
     private String text;
-    @NonNull
     private UUID userId;
 }

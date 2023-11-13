@@ -7,7 +7,9 @@ import com.rkuryshev.messenger.exeption.ChatCreationException;
 import com.rkuryshev.messenger.service.ChatService;
 import com.rkuryshev.messenger.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +17,16 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@AllArgsConstructor
 public class ChatController {
     private final UserService userService;
+
     private final ChatService chatService;
+
+    @Autowired
+    public ChatController(UserService userService, ChatService chatService) {
+        this.userService = userService;
+        this.chatService = chatService;
+    }
 
     @GetMapping("/chats/{username}")
     public List<ChatDTO> getUsersChats(@PathVariable String username) {
@@ -30,7 +38,7 @@ public class ChatController {
         return null;
     }
 
-    @GetMapping("/{chatUUID}")
+    @GetMapping("/getChat/{chatUUID}")
     public ChatDTO getChatMessages(@PathVariable UUID chatUUID) {
         return chatService.getChatDto(chatUUID);
     }

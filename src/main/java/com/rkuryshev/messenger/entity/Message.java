@@ -12,6 +12,7 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @EqualsAndHashCode
+@AllArgsConstructor
 public class Message {
 
     @Id

@@ -3,6 +3,7 @@ package com.rkuryshev.messenger.entity;
 import com.rkuryshev.messenger.dto.ChatDTO;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,6 @@ public class Chat {
     }
 
     public ChatDTO createDTO() {
-        return new ChatDTO(uuid ,messages, ownerUser.createDTO(), contactUser.createDTO());
+        return new ChatDTO(uuid, messages, ownerUser.createDTO(), contactUser.createDTO());
     }
 }
