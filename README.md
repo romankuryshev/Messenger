@@ -1,7 +1,7 @@
 # Messenger
 Simple RESTful application 
 
-## Technologies
+## Stack
 * Spring Boot
 * Spring Security
 * Spring Data JPA
